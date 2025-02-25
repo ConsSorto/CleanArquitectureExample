@@ -1,0 +1,10 @@
+Backend/.vs
+Backend/ProjectEvaluation
+Backend/API/bin
+Backend/API/obj
+Backend/Domain/bin
+Backend/Domain/obj
+Backend/Infraestructure/bin
+Backend/Infraestructure/obj
+Backend/Aplication/bin
+Backend/Aplication/obj
