@@ -9,7 +9,7 @@
             if (obj is not Entity other)
                 return false;
 
-            return Id == other.Id
+            return Id == other.Id;
         }
 
         public override int GetHashCode() => Id.GetHashCode();
