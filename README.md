@@ -3,14 +3,14 @@ CleanArquitectureExample
 
 
 # Comandos iniciales
-Infra 
-- entrar a infra/sqlserver y en la consola ejecutar:
+Infraestructura
+- Entrar a infra/sqlserver y en la consola ejecutar:
   
   docker compose up -d
   
 Backend
 - Agregar un archivo .env basado en example.env en el proyecto API
-- crear las migraciones, en la consola de comandos ejecutar el siguiente comando
+- Crear las migraciones, en la consola de comandos ejecutar el siguiente comando
   
   dotnet ef migrations add NewMigration --project Infrastructure --startup-project API
   
