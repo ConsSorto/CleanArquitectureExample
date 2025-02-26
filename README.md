@@ -12,7 +12,7 @@ Backend
 - Agregar un archivo .env basado en example.env en el proyecto API
 - Crear las migraciones, en la consola de comandos ejecutar el siguiente comando
   
-  dotnet ef migrations add NewMigration --project Infrastructure --startup-project API
+  dotnet ef migrations add InitialMigration --project Infrastructure --startup-project API
   
 - Actualizar cambios en la base de datos
   
