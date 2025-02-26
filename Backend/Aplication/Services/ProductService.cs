@@ -14,25 +14,25 @@ namespace Aplication.Services
             _productRepository = productRepository;
         }
 
-        public async Task<IEnumerable<ProductDTO>> GetAllAsync()
+        public async Task<IEnumerable<ProductResponseDTO>> GetAllAsync()
         {
             var products = await _productRepository.GetAllAsync();
-            return products.Select(p => new ProductDTO { Id = p.Id, Name = p.Name });
+            return products.Select(p => new ProductResponseDTO { Id = p.Id, Name = p.Name });
         }
-        public async Task<ProductDTO> GetByIdAsync(int id)
+        public async Task<ProductResponseDTO> GetByIdAsync(int id)
         {
             var product = await _productRepository.GetByIdAsync(id);
-            return product is null ? null : new ProductDTO { Id = product.Id, Name = product.Name };
+            return product is null ? null : new ProductResponseDTO { Id = product.Id, Name = product.Name };
 
         }
-        public async Task<ProductDTO> CreateAsync(ProductDTO dto)
+        public async Task<ProductResponseDTO> CreateAsync(ProductRequestDTO dto)
         {
             var product = new Domain.Entities.Product(dto.Name);
             await _productRepository.AddAsync(product);
-            return new ProductDTO { Id = product.Id, Name= product.Name };
+            return new ProductResponseDTO { Id = product.Id, Name= product.Name };
         }
 
-        public async Task<bool> UpdateAsync(int id, ProductDTO dto)
+        public async Task<bool> UpdateAsync(int id, ProductRequestDTO dto)
         {
             var product = await _productRepository.GetByIdAsync(id);
             

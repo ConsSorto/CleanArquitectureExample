@@ -29,14 +29,14 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create([FromBody] ProductDTO dto) 
+        public async Task<IActionResult> Create([FromBody] ProductRequestDTO dto) 
         { 
             var product = await _productService.CreateAsync(dto);
-            return CreatedAtAction(nameof(GetById), new { id = product.Id, product });
+            return CreatedAtAction(nameof(GetById), new { id = product.Id }, product );
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(int id, [FromBody] ProductDTO dto) 
+        public async Task<IActionResult> Update(int id, [FromBody] ProductRequestDTO dto) 
         { 
             var update = await _productService.UpdateAsync(id, dto);
             return update ? NoContent() : NotFound();
