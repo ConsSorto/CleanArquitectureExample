@@ -6,7 +6,7 @@ Backend/API/bin
 Backend/API/obj
 Backend/Domain/bin
 Backend/Domain/obj
-Backend/Infraestructure/bin
-Backend/Infraestructure/obj
+Backend/Infrastructure/bin
+Backend/Infrastructure/obj
 Backend/Aplication/bin
 Backend/Aplication/obj
