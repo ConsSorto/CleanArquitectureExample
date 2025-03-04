@@ -11,6 +11,7 @@ namespace Infraestructure.Persistence
         }
 
         public DbSet<Product> Products { get; set; }
+        public DbSet<BranchOffice> BranchOffices { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

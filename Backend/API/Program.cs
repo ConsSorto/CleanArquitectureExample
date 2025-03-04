@@ -15,7 +15,10 @@ var dbConfig = new DatabaseConfig();
 builder.Services.AddDbContext<BackendDBContext>(options => options.UseSqlServer(dbConfig.ConnectionString));
 
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IBranchOfficeRepository, BranchOfficeRepository>();
+
 builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<IBranchOfficeService, BranchOfficeService>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

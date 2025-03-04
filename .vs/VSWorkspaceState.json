@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Backend",
+    "\\Backend\\API",
+    "\\Backend\\API\\Configuration",
+    "\\Backend\\Aplication\\DTOs",
+    "\\Backend\\Aplication\\Interfaces",
+    "\\Backend\\Aplication\\Services",
+    "\\Backend\\Domain\\Common",
+    "\\Backend\\Infrastructure\\Repositories",
+    "\\Infra"
+  ],
+  "SelectedNode": "\\Backend\\API\\Configuration\\DatabaseConfig.cs",
+  "PreviewInSolutionExplorer": false
+}

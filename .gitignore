@@ -11,3 +11,4 @@ Backend/Infrastructure/obj
 Backend/Infrastructure/Migrations/*
 Backend/Aplication/bin
 Backend/Aplication/obj
+.vs
