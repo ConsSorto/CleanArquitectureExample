@@ -1,8 +1,9 @@
 using API.Configuration;
 using Aplication.Interfaces;
 using Aplication.Services;
-using Infraestructure.Persistence;
-using Infraestructure.Repositories;
+using Infrastructure.Persistence;
+using Infrastructure.Repositories;
+using Infrastructure;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -16,6 +17,7 @@ builder.Services.AddDbContext<BackendDBContext>(options => options.UseSqlServer(
 
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddInfrastructure();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
