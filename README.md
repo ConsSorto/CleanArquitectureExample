@@ -23,4 +23,10 @@ Backend
   
   dotnet ef database update --project Infrastructure --startup-project API
 
+# Construccion de la imagen 
+- Situarse en la carpeta Backend y ejecutar el siguiente comando
+ docker build -t api:dev -f API/Dockerfile .
 
+ # Ejecucion (mismo entorno donde se creo la imagen)
+ - En una carpeta con una archivo .env con los parametros necesarios ejecutar el siguiente comando
+ docker run -d --env-file .env -p 8080:8080 api:dev
