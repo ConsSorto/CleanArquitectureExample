@@ -36,3 +36,6 @@ Backend
  docker run -d --env-file .env -p 8080:8080 api:dev
  
  docker run --name backend -d --env-file .env -p 8080:8080 api:dev
+
+
+ # Runner y su creacion
