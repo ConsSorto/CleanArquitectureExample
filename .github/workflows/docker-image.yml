@@ -30,7 +30,7 @@ jobs:
         REPO_LOWER=$(echo "${{ github.repository }}" | tr '[:upper:]' '[:lower:]')
         IMAGE_NAME=ghcr.io/${REPO_LOWER}/api:dev
         echo "Building $IMAGE_NAME"
-        docker build --no-cache -t $IMAGE_NAME -f API/Dockerfile .
+        docker build --no-cache -t $IMAGE_NAME -f Backend/API/Dockerfile .
 
     - name: Push Docker image to GitHub Container Registry
       run: |
