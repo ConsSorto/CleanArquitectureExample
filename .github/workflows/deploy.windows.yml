@@ -1,4 +1,4 @@
-name: Deploy App
+name: Deploy App Windows
 
 on:
   workflow_dispatch:  # Se ejecuta manualmente desde la pestaña "Actions"
