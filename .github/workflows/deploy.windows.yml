@@ -1,11 +1,11 @@
-name: Deploy App Windows
+name: Deploy App
 
 on:
-  workflow_dispatch:  # Se ejecuta manualmente desde la pestaña "Actions"
+  workflow_dispatch:
 
 jobs:
   deploy:
-    runs-on: clase-industria  # Tu runner Windows self-hosted
+    runs-on: clase-industria
 
     steps:
     - name: Checkout code
@@ -19,22 +19,22 @@ jobs:
         password: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Pull image from GHCR
-      shell: pwsh
+      shell: powershell
       run: |
         $repo = "${{ github.repository }}".ToLower()
         $imageName = "ghcr.io/$repo/api:dev"
         Write-Host "Pulling image: $imageName"
         docker pull $imageName
 
-    - name: Create .env file from GitHub Secret
-      shell: pwsh
+    - name: Create .env file from GitHub Variable
+      shell: powershell
       run: |
         Set-Content -Path .env -Value "${{ vars.ENV_FILE }}"
-        Write-Host ".env file content:"
+        Write-Host "Generated .env:"
         Get-Content .env
 
     - name: Run container with .env
-      shell: pwsh
+      shell: powershell
       run: |
         $repo = "${{ github.repository }}".ToLower()
         $imageName = "ghcr.io/$repo/api:dev"
