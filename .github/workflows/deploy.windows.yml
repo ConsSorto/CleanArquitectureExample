@@ -38,5 +38,6 @@ jobs:
       run: |
         $repo = "${{ github.repository }}".ToLower()
         $imageName = "ghcr.io/$repo/api:dev"
+        docker ps -a -q -f name=api_container | ForEach-Object { docker rm -f $_ }
         Write-Host "Running container from image: $imageName"
         docker run --env-file .env -d -p 9090:8080 --name api_container $imageName
