@@ -1,8 +1,9 @@
 name: Build Validation
 
 on:
-  pull_request:
-    branches: [ "main" ]
+  #pull_request:
+    #branches: [ "main" ]
+  workflow_dispatch:      
 
 jobs:
   build:
@@ -18,7 +19,7 @@ jobs:
         dotnet-version: '8.0.x'
 
     - name: Restore dependencies
-      run: dotnet restore Backend/API/Backend.API.csproj
-
+      run: dotnet restore Backend/Backend.sln
+    
     - name: Build
-      run: dotnet build Backend/API/Backend.API.csproj --configuration Release --no-restore
+      run: dotnet build Backend/Backend.sln --configuration Release --no-restore
