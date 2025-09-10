@@ -17,6 +17,10 @@ jobs:
         registry: ghcr.io
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
+ 
+    - name: Permitir scripts en esta sesión
+      run: Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process -Force
+      shell: powershell
 
     - name: Pull image from GHCR
       shell: powershell
