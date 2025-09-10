@@ -31,12 +31,25 @@ jobs:
     - name: Build and tag Docker image
       run: |
         REPO_LOWER=$(echo "${{ github.repository }}" | tr '[:upper:]' '[:lower:]')
-        IMAGE_NAME=ghcr.io/${REPO_LOWER}/api:dev
-        echo "Building $IMAGE_NAME"
-        docker build --no-cache -t $IMAGE_NAME -f Backend/API/Dockerfile Backend
+        TAG_NAME=${GITHUB_REF#refs/tags/}   # ejemplo: v1.0.0
+        IMAGE_BASE=ghcr.io/${REPO_LOWER}/api
+
+        echo "Building $IMAGE_BASE with tags: $TAG_NAME and latest"
+
+        # Construye la imagen con ambas tags
+        docker build --no-cache \
+          -t $IMAGE_BASE:$TAG_NAME \
+          -t $IMAGE_BASE:latest \
+          -f Backend/API/Dockerfile Backend
 
     - name: Push Docker image to GitHub Container Registry
       run: |
         REPO_LOWER=$(echo "${{ github.repository }}" | tr '[:upper:]' '[:lower:]')
-        IMAGE_NAME=ghcr.io/${REPO_LOWER}/api:dev
-        docker push $IMAGE_NAME
+        TAG_NAME=${GITHUB_REF#refs/tags/}
+        IMAGE_BASE=ghcr.io/${REPO_LOWER}/api
+
+        echo "Pushing $IMAGE_BASE:$TAG_NAME"
+        docker push $IMAGE_BASE:$TAG_NAME
+
+        echo "Pushing $IMAGE_BASE:latest"
+        docker push $IMAGE_BASE:latest
