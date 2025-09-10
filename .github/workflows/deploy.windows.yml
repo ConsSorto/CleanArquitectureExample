@@ -2,7 +2,11 @@ name: Deploy App Windows
 
 on:
   workflow_dispatch:
-
+    inputs:
+      version:
+        description: 'Versión de la imagen a desplegar (ej: v1.0.0). Por defecto usa latest'
+        required: false
+        default: 'latest'
 jobs:
   deploy:
     runs-on: cons-unah
@@ -26,7 +30,8 @@ jobs:
       shell: powershell
       run: |
         $repo = "${{ github.repository }}".ToLower()
-        $imageName = "ghcr.io/$repo/api:dev"
+        $version = "${{ github.event.inputs.version }}"
+        $imageName = "ghcr.io/$repo/api:$version"
         Write-Host "Pulling image: $imageName"
         docker pull $imageName
 
@@ -41,7 +46,8 @@ jobs:
       shell: powershell
       run: |
         $repo = "${{ github.repository }}".ToLower()
-        $imageName = "ghcr.io/$repo/api:dev"
+        $version = "${{ github.event.inputs.version }}"
+        $imageName = "ghcr.io/$repo/api:$version"
         docker ps -a -q -f name=api_container | ForEach-Object { docker rm -f $_ }
         Write-Host "Running container from image: $imageName"
         docker run --env-file .env -d -p 9090:8080 --name api_container $imageName
