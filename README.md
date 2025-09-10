@@ -42,5 +42,3 @@ Backend
 # Runner y su creacion
 
 - Esto lo vimos en clase
-
-testing
