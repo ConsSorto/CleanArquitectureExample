@@ -42,3 +42,5 @@ Backend
 # Runner y su creacion
 
 - Esto lo vimos en clase
+- Esto lo vimos en una charla
+-
