@@ -6,6 +6,8 @@ CleanArquitectureExample
 
 Infraestructura
 
+ejemplo clases
+
 - Entrar a infra/sqlserver y en la consola ejecutar:
 
   docker compose up -d
