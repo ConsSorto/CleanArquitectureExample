@@ -6,7 +6,7 @@ CleanArquitectureExample
 
 Infraestructura
 
-ejemplo clases
+ejemplo en clase ci/cd
 
 - Entrar a infra/sqlserver y en la consola ejecutar:
 
