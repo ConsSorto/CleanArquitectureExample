@@ -9,7 +9,7 @@ on:
         default: 'latest'
 jobs:
   deploy:
-    runs-on: cons-unah
+    runs-on: clase_analisis
 
     steps:
     - name: Checkout code
